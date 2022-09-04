@@ -1,0 +1,116 @@
+CREATE TABLE `empregados` (
+  `codigo` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` char(40) NOT NULL,
+  `setor` char(3) DEFAULT NULL,
+  `cargo` char(20) DEFAULT NULL,
+  `salario` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`codigo`)
+);
+
+INSERT INTO `empregados` VALUES 
+(1,'Cleide Campos','1','Secretária',1200.00),
+(3,'Andreia Batista','3','Programadora',1800.00),
+(4,'Cristiano Ronaldo','6','Programador',1800.00),
+(6,'Mario Silva','4','Analista',2640.00),
+(7,'Ana Silva','4','Secretária',3000.60),
+(9,'Silvia Soares','5','Supervisora',1980.00),
+(10,'José da Silva','1','Programador',1800.00),
+(15,'Manoel Batista','1','Projetista',3000.00),
+(25,'João Silva','4','Supervisor',1980.00);
+
+select * from empregados;
+
+select nome, cargo from from empregados;
+
+select nome from empregados where setor = 1;
+
+select nome, salario from empregados order by nome asc;
+
+select nome, salario from empregados order by nome desc;
+
+select nome from wmpregadps where setor = 4 oder by nome asc;
+
+update empregados set salario = 2500.50 where codigo = 7;
+
+update empregados set departamento = 3 where nome = 'Andreia Batista' and setor = 5;
+
+update empregados set salario = salario * 1.2;
+
+delete from empregados where setor = 1;
+
+delete from empregados where nome = 'Mario Souza';
+
+alter table empregados add admissao date after salario;
+
+update empregados set admissao = '2000-10-20' where codigo = 3;
+
+update empregados set admissao = '1999-09-10' where codigo = 4;
+
+update empregados set admissao = '2005-05-15' where codigo = 7;
+
+update empregados set admissao = '2008-04-25' where codigo = 9;
+
+update empregados set admissao = '200-11-15' where codigo = 25;
+
+select * from empregados where admissao = '2000-10-20';
+
+select * from empregados where admissão > '2000-01-01';
+
+insert into empregados values 
+(20, 'Aline Brito', '2', 'Supervisora', 1700.00, '2009-09-15'),
+(22, 'Silvia Mendes', '2', 'Gerente', 2000.00, '2009-09-01'),
+(24, 'Moacir Campos', '2', 'Programador', 2000.00, '2009-09-10'),
+(26, 'Marco Silva', '2', 'Programador', 2000.00, '2009-09-15');
+
+
+select nome, salario from empregados where salario > 1700.00 + 50.00;
+
+select * from empregados where setor = 5;
+
+select * from empregados where cargo = 'programador';
+
+select * from empregados where salario <= 2000.00;
+
+select * from empregados where setor = 2 and (cargo = 'programador' or 'cargo = 'programadora')
+select * from empregados where setor = 2 and cargo like 'programador%';
+
+select * from empregados where cargo = 'supervisor' or 'cargo = 'supervisora'
+select * from empregados where cargo like 'supervisor%';
+
+select * from empregados where not cargo = 'gerente';
+select * from empregados where cargo != 'gerente';
+
+select * from empregados where salario between 1700.00 and 2000.00;
+
+select * from empregados where cargo = 'programador' or 'cargo = 'programadora'
+select * from empregados where cargo like 'programador%';
+
+select * from empregados where nome like 'a%';
+
+select * from empregados where nome like '_a%';
+
+select * from empregados where nome like '%a%';
+
+
+select avg(salario) from empregados;
+
+select avg(salario) from empregados where setor = 3;
+
+select sum(salario) from empregados;
+
+select sum(salario) from empregados where setor = 5;
+
+select max(salario) from empregados;
+
+select min(salario) from empregados;
+
+
+
+
+
+select count() from empregados where setor = 3;
+
+select count(salario) from empregados where salario > 2000.00;
+
+select count(setores) from empregados;
+
